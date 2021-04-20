@@ -1,0 +1,4 @@
+node_modules
+.git*
+.eslintrc.json
+yarn-error.log

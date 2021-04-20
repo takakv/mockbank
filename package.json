@@ -1,0 +1,25 @@
+{
+  "name": "mockbank",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Taka",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "lint": "eslint .",
+    "prettier": "prettier --check ."
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "sequelize": "^6.6.2",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "prettier": "^2.2.1"
+  }
+}
