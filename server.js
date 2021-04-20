@@ -21,13 +21,8 @@ const db = require("./models/database");
   try {
     await db.sequelize.sync({ alter: true });
     await db.balance.findOrCreate({
-      where: {
-        id: "value",
-      },
-      defaults: {
-        id: "value",
-        balance: 3000,
-      },
+      where: { id: "value" },
+      defaults: { id: "value", balance: 3000 },
     });
   } catch (e) {
     console.error(e);
@@ -38,6 +33,19 @@ app.get("/balance", async (req, res) => {
   try {
     const { balance } = await db.balance.findByPk("value");
     return res.json({ balance });
+  } catch (e) {
+    console.error(e);
+    return res.sendStatus(500);
+  }
+});
+
+app.get("/transactions", async (req, res) => {
+  try {
+    const results = await db.transactions.findAll({
+      limit: 5,
+      order: [["createdAt", "DESC"]],
+    });
+    return res.json(results);
   } catch (e) {
     console.error(e);
     return res.sendStatus(500);

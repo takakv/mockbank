@@ -1,4 +1,5 @@
 node_modules
 .git*
+.prettierignore
 .eslintrc.json
 yarn-error.log

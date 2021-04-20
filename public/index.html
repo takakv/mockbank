@@ -3,17 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <title>Financial log</title>
+    <link rel="stylesheet" type="text/css" href="style.min.css" />
     <script defer src="script.js"></script>
   </head>
   <body>
-    <p>Financial log</p>
-    <p>Current balance: <span id="balance">0</span>€</p>
-    <label for="amount">Transaction amount:</label>
-    <input type="number" id="amount" />
-    <label for="action-rm">Outgoing</label>
-    <input type="radio" id="action-rm" name="action" checked />
-    <label for="action-add">Incoming</label>
-    <input type="radio" id="action-add" name="action" />
-    <button id="commit-transaction">Execute</button>
+    <div class="app-container">
+      <p>Financial log</p>
+      <p>Current balance: <span id="balance">0</span> €</p>
+      <div class="action-form">
+        <div class="action-container">
+          <label for="amount">Transaction amount:</label>
+          <input type="number" id="amount" class="amount-field" />
+          <div class="action-types">
+            <div class="action-type">
+              <label for="action-rm">
+                <input type="radio" id="action-rm" name="action" checked />
+                Outgoing
+              </label>
+            </div>
+            <div class="action-type">
+              <label for="action-add">
+                <input type="radio" id="action-add" name="action" />
+                Incoming
+              </label>
+            </div>
+          </div>
+        </div>
+        <button id="commit-transaction">Execute</button>
+      </div>
+      <table id="transactions" class="transactions-table"></table>
+    </div>
   </body>
 </html>
