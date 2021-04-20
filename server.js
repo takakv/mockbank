@@ -34,6 +34,16 @@ const db = require("./models/database");
   }
 })();
 
+app.get("/balance", async (req, res) => {
+  try {
+    const { balance } = await db.balance.findByPk("value");
+    return res.json({ balance });
+  } catch (e) {
+    console.error(e);
+    return res.sendStatus(500);
+  }
+});
+
 app.post("/update/:action/:val?", async (req, res) => {
   // Parse parameters.
   const { action } = req.params;
@@ -46,16 +56,17 @@ app.post("/update/:action/:val?", async (req, res) => {
   try {
     let { balance } = await db.balance.findByPk("value");
     balance = action === "add" ? balance + val : balance - val;
+    balance = Math.floor(balance * 100) / 100;
     await db.balance.update({ balance }, { where: { id: "value" } });
     await db.transactions.create({
       action,
       amount: val,
     });
+    return res.json({ balance });
   } catch (e) {
     console.error(e);
     return res.sendStatus(500);
   }
-  return res.sendStatus(200);
 });
 
 app.listen(PORT, HOST);

@@ -2,9 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Title</title>
+    <title>Financial log</title>
+    <script defer src="script.js"></script>
   </head>
   <body>
-    <p>Greetings!</p>
+    <p>Financial log</p>
+    <p>Current balance: <span id="balance">0</span>€</p>
+    <label for="amount">Transaction amount:</label>
+    <input type="number" id="amount" />
+    <label for="action-rm">Outgoing</label>
+    <input type="radio" id="action-rm" name="action" checked />
+    <label for="action-add">Incoming</label>
+    <input type="radio" id="action-add" name="action" />
+    <button id="commit-transaction">Execute</button>
   </body>
 </html>
