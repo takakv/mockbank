@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
-const PORT = 4000;
+const PORT = process.env.PORT ?? 4000;
 const HOST = "127.0.0.1";
 
 const app = express();

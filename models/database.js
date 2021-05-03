@@ -1,7 +1,7 @@
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
 
-const sequelize = new Sequelize(process.env.DB_SRC);
+const sequelize = new Sequelize(process.env.DB_SRC ?? "sqlite:bank.db");
 
 sequelize.authenticate().catch(console.error);
 
