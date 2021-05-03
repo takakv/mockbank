@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "server.js",
   "author": "Taka",
-  "license": "MIT",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takakv/mockbank.git"
+  },
   "scripts": {
     "start": "node server.js",
     "lint": "eslint .",
