@@ -6,6 +6,14 @@ Mockbank is a dummy application that can be used to simulate a real world produc
 
 To specify the type of database and its location, the `DB_SRC` environment variable can be specified. An example for a local sqlite database is in the `.env.template` file.
 
+For databases other than of sqlite format, additional node package dependencies must be satisfied. Ex:
+
+```
+npm install --save pg pg-hstore # Postgres
+npm install --save mysql2
+npm install --save mariadb
+```
+
 ## Docker instructions
 
 ```
