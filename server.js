@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const PORT = process.env.PORT ?? 4000;
-const HOST = process.env.ADDR ?? "127.0.0.1";
+const HOST = process.env.HOST ?? "127.0.0.1";
 
 const app = express();
 app.use(express.static("public"));
